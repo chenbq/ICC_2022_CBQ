@@ -1,4 +1,4 @@
-# ICC 2021 Code Development Logs
+# ICC 2022Code Development Logs
 ## 1. Basic Description
 Value-based and Policy Gradient approaches for  UAV control and power optimization, including the following:
 - [x] DDPG
