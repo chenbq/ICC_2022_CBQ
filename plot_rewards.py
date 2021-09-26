@@ -36,13 +36,13 @@ def get_array(name):
 def get_data():
     '''获取数据
     '''
-
-    basecond = get_array(r'E:\GitCode\ICC_2021\models\uav_com\DTPC\run1\logs\all_reward.csv')
-    cond1 = get_array(r'E:\GitCode\ICC_2021\models\uav_com\maddpg\run1\logs\all_reward.csv')
-    cond2 = get_array(r'E:\GitCode\ICC_2021\models\uav_com\ddpg\run1\logs\all_reward.csv')
-    cond3 = get_array(r'E:\GitCode\ICC_2021\models\uav_com\dqn\run1\logs\all_reward.csv')
-    cond4 = get_array(r'E:\GitCode\ICC_2021\models\uav_com\double_dqn\run1\logs\all_reward.csv')
-    cond5 = get_array(r'E:\GitCode\ICC_2021\models\uav_com\dueling_dqn\run1\logs\all_reward.csv')
+    top_path = r'E:\GitCode\ICC_2022_CBQ\models\uav_com'
+    basecond = get_array(top_path+r'\DTPC\run1\logs\all_reward.csv')
+    cond1 = get_array(top_path+r'\maddpg\run1\logs\all_reward.csv')
+    cond2 = get_array(top_path+r'\ddpg\run1\logs\all_reward.csv')
+    cond3 = get_array(top_path+r'\dqn\run1\logs\all_reward.csv')
+    cond4 = get_array(top_path+r'\double_dqn\run1\logs\all_reward.csv')
+    cond5 = get_array(top_path+r'\dueling_dqn\run1\logs\all_reward.csv')
 
     return cond1, basecond,  cond2, cond3, cond4, cond5
 
