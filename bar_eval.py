@@ -182,17 +182,19 @@ def evaluate(config):
                 'k', #black
                 'w' #white
                 ]
-    label_list = ['MADDPG','DTPC', 'DDPG-[13]', 'Double DQN-[12]', 'Dueling DQN-[10]','Fixed']
-    alg_idx = [1,1,1,1,1,1]
+    # label_list = ['MADDPG','DTPC', 'DDPG-[13]', 'Double DQN-[12]', 'Dueling DQN-[10]','Fixed']
+    # alg_idx = [1,1,1,1,1,1]
+    label_list = ['MADDPG','DTPC', 'Fixed']
+    alg_idx = [1,1,1]
     satisfied_users_lst = []
     mean_trans_power_lst = []
     DTPC_NO = 18*64+64*64+ 64*64+64*3   +  (18+3)*4*128+ 128*128 + 128*128 +128*1
     MADDPG_NO = 18*64+64*64+ 64*64+64*3   + 4*(  (18+3)*4*128+ 128*128 + 128*128 +128*1)
     paralist = [1,# MADDPG
                  DTPC_NO/MADDPG_NO, # DTPC
-                0,0,0,0]
+                0]
     with open(path_temp, mode_temp) as f:
-        for i_curve, txt_file in enumerate(['maddpg_config.txt','dtpc_config.txt','ddpg_config.txt','double_dqn_config.txt','dueling_dqn_config.txt']):
+        for i_curve, txt_file in enumerate(['maddpg_config.txt','dtpc_config.txt']):
             data, power = evaluate_alg(txt_file, alg_idx[i_curve])
             satisfied_users_lst.append(np.around(data, 1))
             mean_trans_power_lst.append(np.around(power, 2))
@@ -211,8 +213,9 @@ def evaluate(config):
 
     fig, ax = plt.subplots()
     #idx_offset = [-2.0,-1.0,0.0,1.0,2.0]
-    idx_offset = [-5.0/2, -3.0/2, -1.0/2, 1.0/2, 3.0/2, 5.0/2]
-    for i in range(6):
+    #idx_offset = [-5.0/2, -3.0/2, -1.0/2, 1.0/2, 3.0/2, 5.0/2]
+    idx_offset = [-1.0,0.0,1.0]
+    for i in range(3):
         rects = ax.bar(x - idx_offset[i]*width, [satisfied_users_lst_norm[i],mean_trans_power_lst_norm[i],paralist[i]], width, label=label_list[i])
 
         ax.bar_label(rects, labels = [satisfied_users_lst[i], mean_trans_power_lst[i], paralist[i]*MADDPG_NO], padding=3)
