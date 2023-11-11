@@ -41,14 +41,14 @@ class Scenario(BaseScenario):
             #landmark.color = np.array([248/255.0, 198/255.0, 149/255.0])
 
         # set random initial states
-        agent_pos_lst = [np.array([-400, -400 ],dtype=np.float),np.array([-400, 400 ],dtype=np.float),
-                         np.array([400, -400],dtype=np.float),np.array([400, 400],dtype=np.float)]
+        agent_pos_lst = [np.array([-400, -400 ],dtype=np.float64),np.array([-400, 400 ],dtype=np.float64),
+                         np.array([400, -400],dtype=np.float64),np.array([400, 400],dtype=np.float64)]
         for i, agent in enumerate(world.agents):
-            # agent.state.p_pos = np.array([i//2*500-250, i%2*500-250 ],dtype=np.float)
+            # agent.state.p_pos = np.array([i//2*500-250, i%2*500-250 ],dtype=np.float64)
             agent.state.p_pos = agent_pos_lst[i]
             #agent.state.p_pos = np.random.uniform(-500, +500, world.dim_p)
             #np.random.uniform(-100, +100, world.dim_p)
-            #agent.state.p_pos = np.array([-500, 500], dtype=np.float)
+            #agent.state.p_pos = np.array([-500, 500], dtype=np.float64)
             agent.state.p_vel = np.zeros(world.dim_p)
             agent.state.c = np.zeros(world.dim_c)
             agent.state.power = np.ones(world.dim_p_c) #np.zeros(world.dim_p_c)
@@ -102,7 +102,7 @@ class Scenario(BaseScenario):
         num_agents = len(world.agents)
         num_landmarks = len(world.landmarks)
         serv_num = np.zeros(num_agents)
-        serv_uav_idx = 100*np.ones(num_landmarks,dtype=np.int) # 每个user接入的uav的idx
+        serv_uav_idx = 100*np.ones(num_landmarks,dtype=int) # 每个user接入的uav的idx
         #serv_user_idx = np.zeros((num_agents,num_landmarks)) # 每个uav服务的用户idx
         for l_i, l in enumerate(world.landmarks):
             dists = [np.sqrt(np.sum(np.square(a.state.p_pos - l.state.p_pos))) for a in world.agents]
