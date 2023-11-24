@@ -411,6 +411,7 @@ class BatchMultiAgentEnv(gym.Env):
         obs_n = []
         for env in self.env_batch:
             obs_n += env.reset()
+        
         return obs_n
 
     # render environment

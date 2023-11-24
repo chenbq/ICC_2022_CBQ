@@ -255,7 +255,7 @@ def rand_evaluate(config):
             # else:
             actions = [[np.random.uniform(-1, 1, 3), np.random.uniform(-1, 1, 3),
                             np.random.uniform(-1, 1, 3),np.random.uniform(-1, 1, 3),]]
-            #actions = [[np.array([0,0,1],dtype=np.float),np.array([0,0,1],dtype=np.float),np.array([0,0,1],dtype=np.float),np.array([0,0,1],dtype=np.float)]]
+            #actions = [[np.array([0,0,1],dtype=np.float64),np.array([0,0,1],dtype=np.float64),np.array([0,0,1],dtype=np.float64),np.array([0,0,1],dtype=np.float64)]]
             obs_raw, rewards, dones, infos = env.step(actions)
             (num_sat_u, fly_p, trans_p, _) = env.get_info()[0]
             mean_data_vs_time[ep_i, et_i] = num_sat_u
@@ -292,7 +292,7 @@ def uniform_evaluate(config):
             # else:
             actions = [[np.array([0.0, 0.0, 1.0]), np.array([0.0, 0.0, 1.0]),
                             np.array([0.0, 0.0, 1.0]), np.array([0.0, 0.0, 1.0])]]
-            #actions = [[np.array([0,0,1],dtype=np.float),np.array([0,0,1],dtype=np.float),np.array([0,0,1],dtype=np.float),np.array([0,0,1],dtype=np.float)]]
+            #actions = [[np.array([0,0,1],dtype=np.float64),np.array([0,0,1],dtype=np.float64),np.array([0,0,1],dtype=np.float64),np.array([0,0,1],dtype=np.float64)]]
             obs_raw, rewards, dones, infos = env.step(actions)
             (num_sat_u, fly_p, trans_p, _) = env.get_info()[0]
 

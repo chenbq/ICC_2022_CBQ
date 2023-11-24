@@ -153,7 +153,7 @@ class World(object):
         #agent.state.p_pos = np.clip(agent.state.p_pos, -500, 500) # 1-11 clip the active area
         # 2021-1-13 clip into the region
         agent.state.p_pos = np.clip(agent.state.p_pos, -500, 500) # 1-11 clip the active area
-        #np.array([i // 2 * 500 - 250, i % 2 * 500 - 250], dtype=np.float)
+        #np.array([i // 2 * 500 - 250, i % 2 * 500 - 250], dtype=np.float64)
 
     def update_agent_state(self, agent):
         # set communication state (directly for now)
